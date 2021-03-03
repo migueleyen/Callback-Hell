@@ -17,7 +17,7 @@ const getEmployee=function(id,callback){
 
     //Match find and store employe.name 
 
-    const employe=employees.find(emp=>emp.id===id).name;
+    const employe=employees.find(emp=>emp.id===id)?.name;
 
     if(employe){
         callback(null,employe) ;
