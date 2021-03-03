@@ -29,9 +29,23 @@ const getEmployee=function(id){
     })
 }
 
-const id=4;
+const getSalary=function(id){
+
+    return new Promise((resolve,reject)=>{
+
+        const salari=salaries.find(sal=>sal.id===id)?.salary;
+
+        (salari)
+        ?resolve(salari)
+        :reject(`No Existe Salario con id : ${id}`);
+    });
+};
+
+const id=1;
 getEmployee(id)
 .then(employ=>console.log(employ))
 .catch(err=>console.log(err));
 
-
+getSalary(id)
+.then(salar=>console.log(salar))
+.catch(err=>console.log(err))
