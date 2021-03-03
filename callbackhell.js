@@ -1,12 +1,12 @@
 const employees=[
 
-    {id:1,name:'Andre'},
-    {id:2,name:'Cesar'},
-    {id:3,name:'Miguel'},
+        {id:1,name:'Andre'},
+        {id:2,name:'Cesar'},
+        {id:3,name:'Miguel'},
         
     ];
     
-    const salaries=[
+const salaries=[
     
         {id:1,salary:1000},
         {id:2,salary:2000},
@@ -46,7 +46,7 @@ const employees=[
             // console.log(`Empleado con id : ${id}, no existe`);
         }
     };
-    const id=1;
+    const id=5;
     getEmployee(id,function(err,employee){
     
         if(err){
@@ -72,7 +72,7 @@ const employees=[
                 else{
             
                     
-                    console.log(`El salario de ${employee} es de US$:`,salary);
+                    console.log(`El salario de empleado ${employee} es de US$:`,salary);
                  
                 } 
             })
