@@ -18,7 +18,7 @@ const getEmployee=function(id,callback){
     const employe=employees.find(emp=>emp.id===id);
 
     if(employe){
-        callback(employe) ;
+        callback(null,employe) ;
     }
     else{
 
@@ -28,9 +28,21 @@ const getEmployee=function(id,callback){
     }
 };
 
-getEmployee(5,function(employee){
+getEmployee(1,function(err,employee){
 
-    console.log(employee);
+    if(err){
+
+        console.log('ERROR !');
+        return console.log(err);
+
+        
+    }
+    else{
+
+        console.log('Empleado Existe :');
+        console.log(employee);
+    }
+    
 })
 
 
