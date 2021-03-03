@@ -29,7 +29,7 @@ const getSalary = function (id) {
   });
 };
 
-const id = 3;
+const id = 5;
 
 getEmployee(id)
     .then((employ) => {
@@ -37,7 +37,10 @@ getEmployee(id)
             .then((sal) => {
                 console.log(`El salario para ${emp} es de US$ ${sal}`);
             })
+            .catch(err=>console.log(err))
     })
+    .catch(err=>console.log(err))
+
 
 /* getEmployee(id)
 .then(employ=>console.log(employ))
