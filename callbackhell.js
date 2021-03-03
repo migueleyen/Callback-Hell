@@ -29,24 +29,7 @@ const employees=[
             // console.log(`Empleado con id : ${id}, no existe`);
         }
     };
-    
-    getEmployee(3,function(err,employee){
-    
-        if(err){
-    
-            console.log('ERROR !');
-            return console.log(err);
-    
-            
-        }
-        else{
-    
-            console.log('Empleado Existe :');
-            console.log(employee);
-        }
-        
-    })
-    
+
     const getSalary=function(id,callback){
     
         //Match find and store employe.name 
@@ -63,23 +46,43 @@ const employees=[
             // console.log(`Empleado con id : ${id}, no existe`);
         }
     };
-    
-    getSalary(3,function(err,salary){
+    const id=1;
+    getEmployee(id,function(err,employee){
     
         if(err){
     
-        
+            console.log('ERROR !');
             return console.log(err);
     
             
         }
         else{
     
+            console.log('Empleado Existe :',employee);
+        
+            getSalary(id,function(err,salary){
+    
+                if(err){
             
-            console.log(`El salario es de :`);
-           console.log(salary);
-        } 
+                
+                    return console.log(err);
+            
+                    
+                }
+                else{
+            
+                    
+                    console.log(`El salario de ${employee} es de US$:`,salary);
+                 
+                } 
+            })
+        }
+        
     })
+    
+   
+    
+    
 
     
     /* const getEmployee=function(id){
