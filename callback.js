@@ -13,22 +13,26 @@ const salaries=[
     
 ]
 
-const getEmployee=function(id){
+const getEmployee=function(id,callback){
 
     const employe=employees.find(emp=>emp.id===id);
 
     if(employe){
-        return employe;
+        callback(employe) ;
     }
     else{
 
-        return `Empleado con id : ${id}, no existe`;
+        callback( `Empleado con id : ${id}, no existe`);
 
         // console.log(`Empleado con id : ${id}, no existe`);
     }
-}
+};
 
-console.log(getEmployee(2));
+getEmployee(5,function(employee){
+
+    console.log(employee);
+})
+
 
 
 /* const getEmployee=function(id){
