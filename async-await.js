@@ -47,27 +47,46 @@
 
   const getInfoEmploye=async function(id){
  
+    try {
 
-    const employ=await getEmployee(id);
+        const employ=await getEmployee(id);
     const salari=await getSalary(id);
     const prf=await getProfile(id);
 
-    return `El salario del empleado ${employ} , teniendo el perfil laboral de : ${prf} es de $ / . ${salari} us$`;      
+    return `El salario del empleado ${employ}  es de $ / . ${salari} us$ , teniendo el perfil laboral en el area de : ${prf}`;  
+        
+    } catch (error) {
+
+        throw error // Captura los rejects como errores intermedios.
+
+        // return error : No filtra los rejects como errores intermedios
+    }
+        
 
     
              
   }
   
-  const id=2;
+  const id=1;
 
   getInfoEmploye(id)
-    .then(msg=>
+    .then(msg=>{
+
+                    console.log('Todo Bien');
+                    console.log(msg);
+
+                }
                 
-                console.log(msg)
+                
             )
-    .catch(err=>
+    .catch(err=>{
+
+                    console.log(('Todo Mal'));
+                    console.log(err);
+
+                }
                      
-                console.log(err)
+                
             );
 
 
