@@ -1,28 +1,5 @@
-const awaitData=function(){
 
-    return new Promise(
-        
-        resolve =>{
-
-            setTimeout(() => {
-                 resolve('get Data !');
-            }, 2000);
-        })
-}
-
-const getData=async function(){
-
-    const data=await awaitData();
-
-    // const data=awaitData();
-
-    return data;
-}
-
-getData()
-    .then(data=>console.log(data));
-
-  /* const employees = [
+  const employees = [
     { id: 1, name: "Andre" },
     { id: 2, name: "Cesar" },
     { id: 3, name: "Miguel" },
@@ -70,20 +47,45 @@ getData()
 
   const getInfoEmploye=async function(id){
 
-    const employ=getEmployee(id);
+    const employ=await getEmployee(id);
+    const salari=await getSalary(id);
+    const prf=await getProfile(id);
 
-    return employ;               
+    return `El salario del empleado ${employ} , teniendo el perfil laboral de : ${prf} es de $ / . ${salari} us$`;               
   }
   
-  const id=1;
+  const id=2;
 
   getInfoEmploye(id)
-    .then(msg=>console.log(msg)); */
+    .then(msg=>console.log(msg)); 
+  
 
 
 
 
+/* const awaitData=function(){
 
+    return new Promise(
+        
+        resolve =>{
+
+            setTimeout(() => {
+                 resolve('get Data !');
+            }, 2000);
+        })
+}
+
+const getData=async function(){
+
+    const data=await awaitData();
+
+    // const data=awaitData();
+
+    return data;
+}
+
+getData()
+    .then(data=>console.log(data)); */
 
 
 
