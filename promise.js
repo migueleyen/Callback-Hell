@@ -9,6 +9,10 @@ const salaries = [
   { id: 2, salary: 2000 },
 ];
 
+const profiles=[
+
+  {id:1,profile:'Soporte Tecnico'}
+]
 const getEmployee = function (id) {
   return new Promise((resolve, reject) => {
     const employe = employees.find((emp) => emp.id === id)?.name;
@@ -29,17 +33,37 @@ const getSalary = function (id) {
   });
 };
 
-const id = 5;
+const getProfile=function(id){
+  return new Promise((resolve,reject)=>{
 
+    const prof=profiles.find((pf)=>pf.id===id)?.profile;
+
+    prof ? resolve(prof):reject
+    (`No registra Profesion el id : ${id}` );
+
+  })
+}
+const id =1;
+let nombre;
+let salar;
 getEmployee(id)
-    .then((employ) => {
-        getSalary(id)
-            .then((sal) => {
-                console.log(`El salario para ${emp} es de US$ ${sal}`);
-            })
-            .catch(err=>console.log(err))
+    .then(employ=>{
+
+          nombre=employ;
+          
+          return getSalary(id)
+
     })
-    .catch(err=>console.log(err))
+    .then(sal=>{
+          salar=sal;
+          
+          return getProfile(id)
+      
+    })
+    .then(prof=>{
+          console.log(`El Empleado ${nombre} con el id ${id} tiene un salario de $/. ${salar} US$ Y desempeña labores como : ${prof} `);
+    })
+    .catch(err=>console.log(err));
 
 
 /* getEmployee(id)
