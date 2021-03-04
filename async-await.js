@@ -1,5 +1,28 @@
+const awaitData=function(){
 
-  const employees = [
+    return new Promise(
+        
+        resolve =>{
+
+            setTimeout(() => {
+                 resolve('get Data !');
+            }, 2000);
+        })
+}
+
+const getData=async function(){
+
+    const data=await awaitData();
+
+    // const data=awaitData();
+
+    return data;
+}
+
+getData()
+    .then(data=>console.log(data));
+
+  /* const employees = [
     { id: 1, name: "Andre" },
     { id: 2, name: "Cesar" },
     { id: 3, name: "Miguel" },
@@ -53,9 +76,9 @@
   }
   
   const id=1;
-  
+
   getInfoEmploye(id)
-    .then(msg=>console.log(msg));
+    .then(msg=>console.log(msg)); */
 
 
 
