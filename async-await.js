@@ -46,19 +46,29 @@
   }
 
   const getInfoEmploye=async function(id){
+ 
 
     const employ=await getEmployee(id);
     const salari=await getSalary(id);
     const prf=await getProfile(id);
 
-    return `El salario del empleado ${employ} , teniendo el perfil laboral de : ${prf} es de $ / . ${salari} us$`;               
+    return `El salario del empleado ${employ} , teniendo el perfil laboral de : ${prf} es de $ / . ${salari} us$`;      
+
+    
+             
   }
   
   const id=2;
 
   getInfoEmploye(id)
-    .then(msg=>console.log(msg)); 
-  
+    .then(msg=>
+                
+                console.log(msg)
+            )
+    .catch(err=>
+                     
+                console.log(err)
+            );
 
 
 
